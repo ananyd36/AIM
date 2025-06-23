@@ -29,10 +29,10 @@ export default function Home() {
         <section className="w-full min-h-screen flex items-center justify-center bg-[var(--background)] pt-16">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 className="text-5xl sm:text-6xl font-bold mb-6 text-[var(--primary)]">
-              Welcome to AIM
+              Ready to AIM?
             </h1>
             <p className="text-xl sm:text-2xl mb-8 text-[var(--foreground)]/90">
-              Empowering the future through artificial intelligence
+              Empower your future through artificial intelligence!
             </p>
             <p className="text-lg sm:text-xl mb-12 text-[var(--foreground)]/80">
               Your partner in AI innovation, offering comprehensive solutions through our prompt library,
