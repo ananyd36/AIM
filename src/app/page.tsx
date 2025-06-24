@@ -60,10 +60,10 @@ export default function Home() {
                 <h3 className="text-2xl font-semibold mb-4 text-[var(--primary)]">AI Prompt Library</h3>
                 <p className="text-[var(--foreground)]/90 mb-6">Explore a curated library of AI prompts for any task—creative, business, coding, and more.</p>
                 <Link 
-                  href="/coming-soon"
+                  href="/prompt"
                   className="text-[var(--primary)] hover:underline"
                 >
-                  Coming Soon →
+                  Explore Prompt Library →
                 </Link>
               </div>
 
@@ -75,10 +75,10 @@ export default function Home() {
                 <h3 className="text-2xl font-semibold mb-4 text-[var(--primary)]">AI Consulting & Solutions</h3>
                 <p className="text-[var(--foreground)]/90 mb-6">Get expert guidance and custom AI solutions for your business needs.</p>
                 <Link 
-                  href="/coming-soon"
+                  href="/consulting"
                   className="text-[var(--primary)] hover:underline"
                 >
-                  Coming Soon →
+                  Explore Consulting →
                 </Link>
               </div>
 
@@ -90,10 +90,10 @@ export default function Home() {
                 <h3 className="text-2xl font-semibold mb-4 text-[var(--primary)]">AI Teaching & Courses</h3>
                 <p className="text-[var(--foreground)]/90 mb-6">Learn AI from the ground up with our comprehensive courses and tutorials.</p>
                 <Link 
-                  href="/coming-soon"
+                  href="/learning"
                   className="text-[var(--primary)] hover:underline"
                 >
-                  Coming Soon →
+                  Explore Learning →
                 </Link>
               </div>
             </div>
