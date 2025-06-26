@@ -170,7 +170,7 @@ export default function PromptLibrary() {
 
       <main className="pt-24 pb-12 bg-[var(--background)] min-h-screen">
         {/* Product-Specific Navigation */}
-        <nav className="bg-[var(--secondary)]/90 backdrop-blur-md top-[68px] z-40 shadow-sm border-b border-[var(--primary)] sticky">
+        <nav className="bg-[var(--secondary)]/90 backdrop-blur-md top-[64px] z-40 shadow-sm border-b border-[var(--primary)] sticky">
           <div className="container mx-auto px-6 py-3 flex justify-center md:justify-start space-x-6 md:space-x-8 text-[var(--foreground)]">
             <a href="#hero" className="nav-link-product font-semibold text-[var(--primary)]">Prompts Overview</a>
             <a href="#value" className="nav-link-product">Value</a>
@@ -192,7 +192,7 @@ export default function PromptLibrary() {
             </p>
             <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
               <a href="../waitlist/" className="cta-button cta-button-primary bg-[var(--secondary)] text-[var(--primary)] border-[var(--primary)] border-2 shadow-md rounded font-semibold px-6 py-3 transition-colors duration-200">Join Our Waitlist</a>
-              <a href="/contact" className="cta-button cta-button-secondary border-2 border-[var(--primary)] text-[var(--primary)] bg-transparent">Learn More</a>
+              <a href="/contact" className="cta-button cta-button-primary bg-[var(--secondary)] text-[var(--primary)] border-[var(--primary)] border-2 shadow-md rounded font-semibold px-6 py-3 transition-colors duration-200">Learn More</a>
             </div>
             <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
               <div className="bg-[var(--background)] p-6 rounded-lg shadow-sm">
@@ -352,7 +352,7 @@ export default function PromptLibrary() {
               />
               <button
                 onClick={handleSparklePrompt}
-                className="cta-button cta-button-primary w-full md:w-auto bg-[var(--primary)] text-[var(--background)] border-none"
+                className="cta-button cta-button-primary bg-[var(--secondary)] text-[var(--primary)] border-[var(--primary)] border-2 shadow-md rounded font-semibold px-6 py-3 transition-colors duration-200"
                 disabled={sparkleLoading || !sparkleInput.trim()}
               >
                 {sparkleLoading ? "Generating..." : "Generate Premium Prompt"}
