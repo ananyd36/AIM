@@ -147,272 +147,250 @@ export default function PromptLibrary() {
   }
 
   return (
-    <>
-      {/* Navigation Bar (same as homepage) */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-[var(--nav-bg)] backdrop-blur-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <div className="flex-shrink-0">
-              <Link href="/" className="text-2xl font-bold text-[var(--primary)]">
-                AIM
-              </Link>
+    <main>
+      {/* Product-Specific Navigation */}
+      <nav className="bg-[var(--secondary)]/90 backdrop-blur-md top-[64px] z-40 shadow-sm border-b border-[var(--primary)] sticky">
+        <div className="container mx-auto px-6 py-3 flex justify-center md:justify-start space-x-6 md:space-x-8 text-[var(--foreground)]">
+          <a href="#hero" className="nav-link-product font-semibold text-[var(--primary)]">Prompts Overview</a>
+          <a href="#value" className="nav-link-product">Value</a>
+          <a href="#toolkit" className="nav-link-product">Toolkit</a>
+          <a href="#library" className="nav-link-product">Library</a>
+          <a href="#sparkle-prompt" className="nav-link-product">Sparkle Prompt</a>
+          <a href="#strategy" className="nav-link-product">Strategy</a>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <section id="hero" className="py-20 md:py-32 text-center bg-[var(--secondary)]">
+        <div className="container mx-auto px-6">
+          <h1 className="text-4xl md:text-6xl font-bold text-[var(--primary)] leading-tight">
+            Architecting Your Premium AI Prompts
+          </h1>
+          <p className="mt-4 text-lg md:text-xl text-[var(--foreground)]/90 max-w-3xl mx-auto">
+            This is a preview of our premium, expert-crafted AI prompts. Moving beyond simple queries, our specialized prompt packages engineer high-value instructions that deliver unparalleled results for analysts, creators, and builders.
+          </p>
+          <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
+            <a href="../waitlist/" className="cta-button cta-button-primary bg-[var(--secondary)] text-[var(--primary)] border-[var(--primary)] border-2 shadow-md rounded font-semibold px-6 py-3 transition-colors duration-200">Join Our Waitlist</a>
+            <a href="/contact" className="cta-button cta-button-primary bg-[var(--secondary)] text-[var(--primary)] border-[var(--primary)] border-2 shadow-md rounded font-semibold px-6 py-3 transition-colors duration-200">Learn More</a>
+          </div>
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div className="bg-[var(--background)] p-6 rounded-lg shadow-sm">
+              <p className="text-3xl font-bold text-[var(--primary)]">$6,533.87B</p>
+              <p className="mt-2 text-[var(--foreground)]/80">Projected Prompt Engineering Market by 2034</p>
             </div>
-            <div className="hidden md:block">
-              <div className="ml-10 flex items-center space-x-8">
-                <Link href="/" className="nav-link text-[var(--foreground)]">About</Link>
-                <Link href="/#services" className="nav-link text-[var(--foreground)]">Services</Link>
-                <Link href="/#contact" className="nav-link text-[var(--foreground)]">Contact</Link>
+            <div className="bg-[var(--background)] p-6 rounded-lg shadow-sm">
+              <p className="text-3xl font-bold text-[var(--primary)]">32.90%</p>
+              <p className="mt-2 text-[var(--foreground)]/80">Compound Annual Growth Rate (CAGR)</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Value Section */}
+      <section id="value" className="py-20 bg-[var(--background)]">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-[var(--primary)]">The Anatomy of a Premium Prompt</h2>
+            <p className="mt-4 text-lg text-[var(--foreground)]/90 max-w-3xl mx-auto">
+              A premium prompt is not just an instruction; it's a meticulously engineered solution. It justifies its value by automating complex tasks, reducing errors, and delivering expert-level insights that save significant time and resources. Click each criterion to see how.
+            </p>
+          </div>
+          <div className="max-w-4xl mx-auto space-y-4">
+            {checklistData.map((item, idx) => (
+              <div key={item.criterion} className="bg-[var(--secondary)] rounded-lg shadow-sm overflow-hidden">
+                <button
+                  className="w-full text-left p-4 font-semibold text-[var(--foreground)] flex justify-between items-center hover:bg-[var(--primary)]/10 transition-colors"
+                  onClick={() => setOpenChecklist(openChecklist === idx ? null : idx)}
+                >
+                  <span>{item.criterion}</span>
+                  <svg
+                    className={`w-5 h-5 transition-transform ${openChecklist === idx ? "rotate-180" : ""}`}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </button>
+                <div className={`px-4 pb-4 bg-[var(--background)] ${openChecklist === idx ? "block" : "hidden"}`}>
+                  <p className="text-[var(--foreground)]/90">{item.description}</p>
+                  <div className="mt-2 text-sm">
+                    <span className="font-semibold">Key Techniques:</span>
+                    <span className="text-[var(--primary)] ml-2">{item.techniques.join(", ")}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Toolkit Section */}
+      <section id="toolkit" className="py-20 bg-[var(--secondary)]">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-[var(--primary)]">The Prompt Architect's Toolkit</h2>
+            <p className="mt-4 text-lg text-[var(--foreground)]/90 max-w-3xl mx-auto">
+              Expert-level prompts are built using a combination of foundational principles and advanced techniques. This toolkit allows you to explore the methods that transform a simple query into a powerful, precise instruction for an AI model.
+            </p>
+          </div>
+          <div className="flex flex-col md:flex-row gap-8 max-w-6xl mx-auto bg-[var(--background)] p-4 rounded-lg shadow-md">
+            <div className="md:w-1/3 flex-shrink-0 space-y-2">
+              {Object.keys(techData).map((tech) => (
+                <button
+                  key={tech}
+                  className={`tech-btn w-full text-left p-3 rounded-md transition-colors ${activeTech === tech ? "bg-[var(--primary)]/20 text-[var(--primary)] font-semibold" : "hover:bg-[var(--primary)]/10"}`}
+                  onClick={() => setActiveTech(tech)}
+                >
+                  {tech}
+                </button>
+              ))}
+            </div>
+            <div className="md:w-2/3 bg-[var(--secondary)] p-6 rounded-lg min-h-[300px]">
+              <h3 className="text-xl font-bold text-[var(--primary)] mb-2">{activeTech}</h3>
+              <p className="text-[var(--foreground)]/90 mb-4">{techData[activeTech].description}</p>
+              <div className="bg-[var(--background)] p-3 rounded-md">
+                <p className="font-semibold text-[var(--primary)]">Primary Benefit:</p>
+                <p className="text-[var(--foreground)]/90">{techData[activeTech].benefit}</p>
               </div>
             </div>
           </div>
         </div>
-      </nav>
+      </section>
 
-      <main className="pt-24 pb-12 bg-[var(--background)] min-h-screen">
-        {/* Product-Specific Navigation */}
-        <nav className="bg-[var(--secondary)]/90 backdrop-blur-md top-[64px] z-40 shadow-sm border-b border-[var(--primary)] sticky">
-          <div className="container mx-auto px-6 py-3 flex justify-center md:justify-start space-x-6 md:space-x-8 text-[var(--foreground)]">
-            <a href="#hero" className="nav-link-product font-semibold text-[var(--primary)]">Prompts Overview</a>
-            <a href="#value" className="nav-link-product">Value</a>
-            <a href="#toolkit" className="nav-link-product">Toolkit</a>
-            <a href="#library" className="nav-link-product">Library</a>
-            <a href="#sparkle-prompt" className="nav-link-product">Sparkle Prompt</a>
-            <a href="#strategy" className="nav-link-product">Strategy</a>
-          </div>
-        </nav>
-
-        {/* Hero Section */}
-        <section id="hero" className="py-20 md:py-32 text-center bg-[var(--secondary)]">
-          <div className="container mx-auto px-6">
-            <h1 className="text-4xl md:text-6xl font-bold text-[var(--primary)] leading-tight">
-              Architecting Your Premium AI Prompts
-            </h1>
-            <p className="mt-4 text-lg md:text-xl text-[var(--foreground)]/90 max-w-3xl mx-auto">
-              This is a preview of our premium, expert-crafted AI prompts. Moving beyond simple queries, our specialized prompt packages engineer high-value instructions that deliver unparalleled results for analysts, creators, and builders.
+      {/* Library Section */}
+      <section id="library" className="py-20 bg-[var(--background)]">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-[var(--primary)]">The Premium Prompt Library</h2>
+            <p className="mt-4 text-lg text-[var(--foreground)]/90 max-w-3xl mx-auto">
+              Explore concrete examples of premium prompts designed for specific, high-value use cases. Each prompt applies the advanced techniques from the toolkit to automate complex professional tasks, showcasing the tangible output of expert prompt engineering.
             </p>
-            <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
-              <a href="../waitlist/" className="cta-button cta-button-primary bg-[var(--secondary)] text-[var(--primary)] border-[var(--primary)] border-2 shadow-md rounded font-semibold px-6 py-3 transition-colors duration-200">Join Our Waitlist</a>
-              <a href="/contact" className="cta-button cta-button-primary bg-[var(--secondary)] text-[var(--primary)] border-[var(--primary)] border-2 shadow-md rounded font-semibold px-6 py-3 transition-colors duration-200">Learn More</a>
-            </div>
-            <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-              <div className="bg-[var(--background)] p-6 rounded-lg shadow-sm">
-                <p className="text-3xl font-bold text-[var(--primary)]">$6,533.87B</p>
-                <p className="mt-2 text-[var(--foreground)]/80">Projected Prompt Engineering Market by 2034</p>
-              </div>
-              <div className="bg-[var(--background)] p-6 rounded-lg shadow-sm">
-                <p className="text-3xl font-bold text-[var(--primary)]">32.90%</p>
-                <p className="mt-2 text-[var(--foreground)]/80">Compound Annual Growth Rate (CAGR)</p>
-              </div>
-            </div>
           </div>
-        </section>
-
-        {/* Value Section */}
-        <section id="value" className="py-20 bg-[var(--background)]">
-          <div className="container mx-auto px-6">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-[var(--primary)]">The Anatomy of a Premium Prompt</h2>
-              <p className="mt-4 text-lg text-[var(--foreground)]/90 max-w-3xl mx-auto">
-                A premium prompt is not just an instruction; it's a meticulously engineered solution. It justifies its value by automating complex tasks, reducing errors, and delivering expert-level insights that save significant time and resources. Click each criterion to see how.
-              </p>
-            </div>
-            <div className="max-w-4xl mx-auto space-y-4">
-              {checklistData.map((item, idx) => (
-                <div key={item.criterion} className="bg-[var(--secondary)] rounded-lg shadow-sm overflow-hidden">
-                  <button
-                    className="w-full text-left p-4 font-semibold text-[var(--foreground)] flex justify-between items-center hover:bg-[var(--primary)]/10 transition-colors"
-                    onClick={() => setOpenChecklist(openChecklist === idx ? null : idx)}
-                  >
-                    <span>{item.criterion}</span>
-                    <svg
-                      className={`w-5 h-5 transition-transform ${openChecklist === idx ? "rotate-180" : ""}`}
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M19 9l-7 7-7-7"
-                      />
-                    </svg>
-                  </button>
-                  <div className={`px-4 pb-4 bg-[var(--background)] ${openChecklist === idx ? "block" : "hidden"}`}>
-                    <p className="text-[var(--foreground)]/90">{item.description}</p>
-                    <div className="mt-2 text-sm">
-                      <span className="font-semibold">Key Techniques:</span>
-                      <span className="text-[var(--primary)] ml-2">{item.techniques.join(", ")}</span>
-                    </div>
-                  </div>
-                </div>
+          <div className="max-w-5xl mx-auto">
+            <div className="flex flex-wrap justify-center border-b border-[var(--primary)] mb-8">
+              {promptTabs.map((tab) => (
+                <button
+                  key={tab}
+                  className={`tab-btn px-4 py-2 -mb-px font-semibold border-b-2 border-transparent rounded-t-lg transition-colors duration-200
+                    ${activePromptTab === tab
+                      ? "bg-[var(--secondary)] text-[var(--primary)] border-[var(--primary)] shadow-md"
+                      : "text-[var(--foreground)] hover:text-[var(--primary)] hover:border-[var(--primary)]"}
+                  `}
+                  onClick={() => setActivePromptTab(tab)}
+                >
+                  {tab}
+                </button>
               ))}
             </div>
-          </div>
-        </section>
-
-        {/* Toolkit Section */}
-        <section id="toolkit" className="py-20 bg-[var(--secondary)]">
-          <div className="container mx-auto px-6">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-[var(--primary)]">The Prompt Architect's Toolkit</h2>
-              <p className="mt-4 text-lg text-[var(--foreground)]/90 max-w-3xl mx-auto">
-                Expert-level prompts are built using a combination of foundational principles and advanced techniques. This toolkit allows you to explore the methods that transform a simple query into a powerful, precise instruction for an AI model.
-              </p>
-            </div>
-            <div className="flex flex-col md:flex-row gap-8 max-w-6xl mx-auto bg-[var(--background)] p-4 rounded-lg shadow-md">
-              <div className="md:w-1/3 flex-shrink-0 space-y-2">
-                {Object.keys(techData).map((tech) => (
-                  <button
-                    key={tech}
-                    className={`tech-btn w-full text-left p-3 rounded-md transition-colors ${activeTech === tech ? "bg-[var(--primary)]/20 text-[var(--primary)] font-semibold" : "hover:bg-[var(--primary)]/10"}`}
-                    onClick={() => setActiveTech(tech)}
-                  >
-                    {tech}
-                  </button>
-                ))}
-              </div>
-              <div className="md:w-2/3 bg-[var(--secondary)] p-6 rounded-lg min-h-[300px]">
-                <h3 className="text-xl font-bold text-[var(--primary)] mb-2">{activeTech}</h3>
-                <p className="text-[var(--foreground)]/90 mb-4">{techData[activeTech].description}</p>
-                <div className="bg-[var(--background)] p-3 rounded-md">
-                  <p className="font-semibold text-[var(--primary)]">Primary Benefit:</p>
-                  <p className="text-[var(--foreground)]/90">{techData[activeTech].benefit}</p>
+            <div className="bg-[var(--secondary)] p-6 rounded-lg shadow-md">
+              <div className="prompt-card active">
+                <h3 className="text-2xl font-bold text-[var(--primary)] mb-2">{activePromptTab}</h3>
+                <p className="text-sm font-semibold text-[var(--primary)] uppercase tracking-wide mb-4">{promptData[activePromptTab].category}</p>
+                <p className="text-[var(--foreground)]/90 mb-4">{promptData[activePromptTab].value}</p>
+                <div className="mb-6">
+                  <span className="font-semibold mr-2">Techniques Used:</span>
+                  <span className="text-[var(--primary)]">
+                    {promptData[activePromptTab].techniques.map((t: string) => (
+                      <span key={t} className="inline-block bg-[var(--primary)]/20 text-[var(--primary)] text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">{t}</span>
+                    ))}
+                  </span>
                 </div>
+                <h4 className="font-semibold text-lg mb-2">Prompt Template:</h4>
+                <pre className="code-block whitespace-pre-wrap bg-[var(--background)] text-[var(--foreground)]">{promptData[activePromptTab].content.trim()}</pre>
               </div>
             </div>
           </div>
-        </section>
-
-        {/* Library Section */}
-        <section id="library" className="py-20 bg-[var(--background)]">
-          <div className="container mx-auto px-6">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-[var(--primary)]">The Premium Prompt Library</h2>
-              <p className="mt-4 text-lg text-[var(--foreground)]/90 max-w-3xl mx-auto">
-                Explore concrete examples of premium prompts designed for specific, high-value use cases. Each prompt applies the advanced techniques from the toolkit to automate complex professional tasks, showcasing the tangible output of expert prompt engineering.
-              </p>
-            </div>
-            <div className="max-w-5xl mx-auto">
-              <div className="flex flex-wrap justify-center border-b border-[var(--primary)] mb-8">
-                {promptTabs.map((tab) => (
-                  <button
-                    key={tab}
-                    className={`tab-btn px-4 py-2 -mb-px font-semibold border-b-2 border-transparent rounded-t-lg transition-colors duration-200
-                      ${activePromptTab === tab
-                        ? "bg-[var(--secondary)] text-[var(--primary)] border-[var(--primary)] shadow-md"
-                        : "text-[var(--foreground)] hover:text-[var(--primary)] hover:border-[var(--primary)]"}
-                    `}
-                    onClick={() => setActivePromptTab(tab)}
-                  >
-                    {tab}
-                  </button>
-                ))}
-              </div>
-              <div className="bg-[var(--secondary)] p-6 rounded-lg shadow-md">
-                <div className="prompt-card active">
-                  <h3 className="text-2xl font-bold text-[var(--primary)] mb-2">{activePromptTab}</h3>
-                  <p className="text-sm font-semibold text-[var(--primary)] uppercase tracking-wide mb-4">{promptData[activePromptTab].category}</p>
-                  <p className="text-[var(--foreground)]/90 mb-4">{promptData[activePromptTab].value}</p>
-                  <div className="mb-6">
-                    <span className="font-semibold mr-2">Techniques Used:</span>
-                    <span className="text-[var(--primary)]">
-                      {promptData[activePromptTab].techniques.map((t: string) => (
-                        <span key={t} className="inline-block bg-[var(--primary)]/20 text-[var(--primary)] text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">{t}</span>
-                      ))}
-                    </span>
-                  </div>
-                  <h4 className="font-semibold text-lg mb-2">Prompt Template:</h4>
-                  <pre className="code-block whitespace-pre-wrap bg-[var(--background)] text-[var(--foreground)]">{promptData[activePromptTab].content.trim()}</pre>
-                </div>
-              </div>
-            </div>
-            <div className="mt-12 text-center">
-              <p className="text-lg text-[var(--foreground)]/90 mb-6 max-w-2xl mx-auto">
-                Ready to unlock the full power of AI for your specific needs? Join our waitlist to be notified about pricing and package options for our full range of premium prompt packages!
-              </p>
-              <a href="../waitlist/" className="cta-button cta-button-primary bg-[var(--secondary)] text-[var(--primary)] border-[var(--primary)] border-2 shadow-md rounded font-semibold px-6 py-3 transition-colors duration-200">Join the Waitlist Today!</a>
-            </div>
-          </div>
-        </section>
-
-        {/* Sparkle Prompt Section */}
-        <section id="sparkle-prompt" className="py-20 bg-[var(--secondary)]">
-          <div className="container mx-auto px-6 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-[var(--primary)] mb-4">✨ Try a Premium Prompt ✨</h2>
-            <p className="text-lg text-[var(--foreground)]/90 max-w-3xl mx-auto mb-8">
-              See the power of a meticulously crafted prompt! Enter a basic idea, and our AI will transform it into a professional, high-value prompt using the techniques outlined in our toolkit.
+          <div className="mt-12 text-center">
+            <p className="text-lg text-[var(--foreground)]/90 mb-6 max-w-2xl mx-auto">
+              Ready to unlock the full power of AI for your specific needs? Join our waitlist to be notified about pricing and package options for our full range of premium prompt packages!
             </p>
-            <div className="max-w-3xl mx-auto bg-[var(--background)] p-6 rounded-lg shadow-md">
-              <textarea
-                className="w-full p-4 rounded-md border border-[var(--primary)] focus:ring-2 focus:ring-[var(--primary)] focus:border-transparent mb-4 resize-y min-h-[120px] text-[var(--foreground)] bg-[var(--background)]"
-                placeholder="e.g., Write a marketing email for a new software feature called 'AI Methods Pro'."
-                value={sparkleInput}
-                onChange={e => setSparkleInput(e.target.value)}
-              />
-              <button
-                onClick={handleSparklePrompt}
-                className="cta-button cta-button-primary bg-[var(--secondary)] text-[var(--primary)] border-[var(--primary)] border-2 shadow-md rounded font-semibold px-6 py-3 transition-colors duration-200"
-                disabled={sparkleLoading || !sparkleInput.trim()}
-              >
-                {sparkleLoading ? "Generating..." : "Generate Premium Prompt"}
-              </button>
-              <div className="mt-6 text-left">
-                {sparkleLoading && (
-                  <div className="text-center text-[var(--primary)] font-semibold">Generating your premium prompt...</div>
-                )}
-                {sparkleError && (
-                  <div className="text-center text-red-600 font-semibold">{sparkleError}</div>
-                )}
-                {sparkleOutput && (
-                  <pre className="code-block whitespace-pre-wrap bg-[var(--background)] text-[var(--foreground)]">{sparkleOutput}</pre>
-                )}
-              </div>
-            </div>
+            <a href="../waitlist/" className="cta-button cta-button-primary bg-[var(--secondary)] text-[var(--primary)] border-[var(--primary)] border-2 shadow-md rounded font-semibold px-6 py-3 transition-colors duration-200">Join the Waitlist Today!</a>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Strategy Section */}
-        <section id="strategy" className="py-20 bg-[var(--background)]">
-          <div className="container mx-auto px-6">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-[var(--primary)]">Market Opportunity & Strategy</h2>
-              <p className="mt-4 text-lg text-[var(--foreground)]/90 max-w-3xl mx-auto">
-                The demand for specialized AI solutions is growing exponentially. This section outlines the market landscape and strategic approach for commercializing a premium prompt library, from productization to ensuring long-term value through continuous maintenance.
-              </p>
+      {/* Sparkle Prompt Section */}
+      <section id="sparkle-prompt" className="py-20 bg-[var(--secondary)]">
+        <div className="container mx-auto px-6 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-[var(--primary)] mb-4">✨ Try a Premium Prompt ✨</h2>
+          <p className="text-lg text-[var(--foreground)]/90 max-w-3xl mx-auto mb-8">
+            See the power of a meticulously crafted prompt! Enter a basic idea, and our AI will transform it into a professional, high-value prompt using the techniques outlined in our toolkit.
+          </p>
+          <div className="max-w-3xl mx-auto bg-[var(--background)] p-6 rounded-lg shadow-md">
+            <textarea
+              className="w-full p-4 rounded-md border border-[var(--primary)] focus:ring-2 focus:ring-[var(--primary)] focus:border-transparent mb-4 resize-y min-h-[120px] text-[var(--foreground)] bg-[var(--background)]"
+              placeholder="e.g., Write a marketing email for a new software feature called 'AI Methods Pro'."
+              value={sparkleInput}
+              onChange={e => setSparkleInput(e.target.value)}
+            />
+            <button
+              onClick={handleSparklePrompt}
+              className="cta-button cta-button-primary bg-[var(--secondary)] text-[var(--primary)] border-[var(--primary)] border-2 shadow-md rounded font-semibold px-6 py-3 transition-colors duration-200"
+              disabled={sparkleLoading || !sparkleInput.trim()}
+            >
+              {sparkleLoading ? "Generating..." : "Generate Premium Prompt"}
+            </button>
+            <div className="mt-6 text-left">
+              {sparkleLoading && (
+                <div className="text-center text-[var(--primary)] font-semibold">Generating your premium prompt...</div>
+              )}
+              {sparkleError && (
+                <div className="text-center text-red-600 font-semibold">{sparkleError}</div>
+              )}
+              {sparkleOutput && (
+                <pre className="code-block whitespace-pre-wrap bg-[var(--background)] text-[var(--foreground)]">{sparkleOutput}</pre>
+              )}
             </div>
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div className="bg-[var(--secondary)] p-6 rounded-lg shadow-md flex flex-col items-center justify-center">
-                {/* Placeholder for chart - you can integrate Chart.js or another chart library here if needed */}
-                <div className="text-3xl font-bold text-[var(--primary)] mb-2">$6,533.87B</div>
-                <div className="text-[var(--foreground)]/80 mb-4">Projected Prompt Engineering Market by 2034</div>
-                <div className="text-3xl font-bold text-[var(--primary)] mb-2">32.90%</div>
-                <div className="text-[var(--foreground)]/80">Compound Annual Growth Rate (CAGR)</div>
+          </div>
+        </div>
+      </section>
+
+      {/* Strategy Section */}
+      <section id="strategy" className="py-20 bg-[var(--background)]">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-[var(--primary)]">Market Opportunity & Strategy</h2>
+            <p className="mt-4 text-lg text-[var(--foreground)]/90 max-w-3xl mx-auto">
+              The demand for specialized AI solutions is growing exponentially. This section outlines the market landscape and strategic approach for commercializing a premium prompt library, from productization to ensuring long-term value through continuous maintenance.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="bg-[var(--secondary)] p-6 rounded-lg shadow-md flex flex-col items-center justify-center">
+              {/* Placeholder for chart - you can integrate Chart.js or another chart library here if needed */}
+              <div className="text-3xl font-bold text-[var(--primary)] mb-2">$6,533.87B</div>
+              <div className="text-[var(--foreground)]/80 mb-4">Projected Prompt Engineering Market by 2034</div>
+              <div className="text-3xl font-bold text-[var(--primary)] mb-2">32.90%</div>
+              <div className="text-[var(--foreground)]/80">Compound Annual Growth Rate (CAGR)</div>
+            </div>
+            <div className="space-y-6">
+              <div>
+                <h3 className="text-xl font-semibold mb-2 text-[var(--primary)]">Packaging & Pricing</h3>
+                <p className="text-[var(--foreground)]/90">
+                  Beyond individual sales, curated bundles and subscription models offer continuous value, providing users with a library that evolves alongside AI technology itself. This ensures prompts remain effective and justifies recurring revenue.
+                </p>
               </div>
-              <div className="space-y-6">
-                <div>
-                  <h3 className="text-xl font-semibold mb-2 text-[var(--primary)]">Packaging & Pricing</h3>
-                  <p className="text-[var(--foreground)]/90">
-                    Beyond individual sales, curated bundles and subscription models offer continuous value, providing users with a library that evolves alongside AI technology itself. This ensures prompts remain effective and justifies recurring revenue.
-                  </p>
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-2 text-[var(--primary)]">Marketing & Positioning</h3>
-                  <p className="text-[var(--foreground)]/90">
-                    Focus on tangible benefits: time saved, errors eliminated, and access to virtual expertise. Case studies and educational content will demonstrate the clear ROI to a professional audience of analysts, creators, and builders.
-                  </p>
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-2 text-[var(--primary)]">Scalability & Maintenance</h3>
-                  <p className="text-[var(--foreground)]/90">
-                    Success hinges on a robust framework of versioning, documentation, and automated testing. Continuous adaptation to new LLM versions is not just maintenance—it's a core feature of the premium value proposition.
-                  </p>
-                </div>
+              <div>
+                <h3 className="text-xl font-semibold mb-2 text-[var(--primary)]">Marketing & Positioning</h3>
+                <p className="text-[var(--foreground)]/90">
+                  Focus on tangible benefits: time saved, errors eliminated, and access to virtual expertise. Case studies and educational content will demonstrate the clear ROI to a professional audience of analysts, creators, and builders.
+                </p>
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold mb-2 text-[var(--primary)]">Scalability & Maintenance</h3>
+                <p className="text-[var(--foreground)]/90">
+                  Success hinges on a robust framework of versioning, documentation, and automated testing. Continuous adaptation to new LLM versions is not just maintenance—it's a core feature of the premium value proposition.
+                </p>
               </div>
             </div>
           </div>
-        </section>
-      </main>
-    </>
+        </div>
+      </section>
+    </main>
   );
 } 
